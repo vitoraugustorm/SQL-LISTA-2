@@ -1,0 +1,7 @@
+SELECT 
+  sum(FINANCEIRO.VALOR) AS ValorMes
+, extract(month from FINANCEIRO.VENCIMENTO) || '/' || extract(year from FINANCEIRO.VENCIMENTO) as VencimentoMes 
+FROM FINANCEIRO
+WHERE (FINANCEIRO.VENCIMENTO between '01.01.2022' AND '01.01.2023') AND (FINANCEIRO.VALOR < 0)
+group BY extract(month from FINANCEIRO.VENCIMENTO) || '/' || extract(year from FINANCEIRO.VENCIMENTO)
+order by extract(month from FINANCEIRO.VENCIMENTO) || '/' || extract(year from FINANCEIRO.VENCIMENTO)
