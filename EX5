@@ -1,0 +1,4 @@
+select 
+*
+from nomes
+where nomes.INDICADOR_IE_DEST_CODIGO is null
